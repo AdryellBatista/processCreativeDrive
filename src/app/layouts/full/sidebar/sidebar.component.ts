@@ -4,11 +4,11 @@ import { MenuItems } from '../../../shared/menu-items/menu-items';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: []
+  styleUrls: ['./sidebar.component.scss']
 })
 export class AppSidebarComponent {
   mobileQuery: MediaQueryList;
-  
+
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public menuItems: MenuItems) {
@@ -20,5 +20,5 @@ export class AppSidebarComponent {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
- 
+
 }
