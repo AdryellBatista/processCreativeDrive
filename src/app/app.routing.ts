@@ -19,6 +19,9 @@ export const AppRoutes: Routes = [
     }, {
       path: 'starter',
       loadChildren: './starter/starter.module#StarterModule'
+    }, {
+      path: 'usuarios',
+      loadChildren: './usuarios/usuarios.module#UsuariosModule'
     }]
   },
   {

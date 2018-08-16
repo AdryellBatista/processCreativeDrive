@@ -30,7 +30,7 @@ import { AccessGuard } from './guards/accessGuard';
     AppHeaderComponent,
     SpinnerComponent,
     AppSidebarComponent,
-    LoginComponent
+    LoginComponent,
 
   ],
   imports: [
@@ -44,9 +44,6 @@ import { AccessGuard } from './guards/accessGuard';
     SharedModule,
     RouterModule.forRoot(AppRoutes),
   ],
-  // exports:[
-  //   LoginComponent
-  // ],
   providers: [
     GlobalsServices,
     AccessGuard,

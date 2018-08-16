@@ -34,7 +34,6 @@ export class LoginComponent {
     if(this.objForm.valid){
       if(this.globalService.logar(this.objForm.value)){
         this.router.navigate(["/starter"]);
-        localStorage.setItem('USER',JSON.stringify(this.objForm.value));
       }else{
         alert('LOGIN deu ruim');
 

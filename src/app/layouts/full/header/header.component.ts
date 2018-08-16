@@ -8,6 +8,9 @@ import { Router } from '@angular/router'
   styleUrls: []
 })
 export class AppHeaderComponent {
+
+  userLogado = JSON.parse(localStorage.getItem('USER'));
+
   constructor(
     private router: Router
   ){}
