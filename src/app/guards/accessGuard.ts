@@ -16,7 +16,6 @@ export class AccessGuard implements CanActivate {
 
     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         let user = localStorage.getItem('USER');
-        console.log('Entrou no AccessGuard :: ', user);
         let valid = false;
         //let valid = true;
         if(user){

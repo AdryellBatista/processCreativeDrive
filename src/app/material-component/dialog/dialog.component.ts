@@ -20,7 +20,6 @@ export class DialogComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.animal = result;
     });
   }
@@ -47,7 +46,7 @@ export class DialogOverviewExampleDialog {
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onNoClick(): void { 
+  onNoClick(): void {
     this.dialogRef.close();
   }
 }

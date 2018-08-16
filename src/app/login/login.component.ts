@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ViewEncapsulation } from '@angular/core';
 import { GlobalsServices } from './../services/globals.services';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 
 import { Router } from '@angular/router'
@@ -20,7 +21,9 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private globalService: GlobalsServices
+    private globalService: GlobalsServices,
+    public  snackBar: MatSnackBar
+
   )
   {
     this.objForm = formBuilder.group({
@@ -30,16 +33,21 @@ export class LoginComponent {
   }
 
   logar(){
-    console.log("Tamo ai:: ", this.objForm.value);
     if(this.objForm.valid){
       if(this.globalService.logar(this.objForm.value)){
         this.router.navigate(["/starter"]);
       }else{
-        alert('LOGIN deu ruim');
-
+        this.openSnackBar('Usuário ou Senha Inválidos','');
       }
     }else{
-      alert('o form deu ruim');
+      this.openSnackBar('Campos Obrigatórios não preenchidos','');
+
     }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 5000,
+    });
   }
 }

@@ -62,8 +62,6 @@ export class UsuariosComponent implements OnInit{
       // changes.prop contains the old and the new value...
     }
   save(){
-    console.log(this.objFormUsuario.value);
-    // debugger;
     if(this.objFormUsuario.valid){
       if(this.objFormUsuario.value.id){
         //Update
@@ -71,23 +69,24 @@ export class UsuariosComponent implements OnInit{
         this.getUsuarios();
         this.userLogado = JSON.parse(localStorage.getItem('USER'));
         this.controlView = 1;
-        this.openSnackBar('Usuário Editado com sucesso!','OK');
+        this.openSnackBar('Usuário Editado com sucesso!','');
 
       }else{
         //save
         this.globalService.addUsuario(this.objFormUsuario.value);
         this.getUsuarios();
         this.controlView = 1;
-        this.openSnackBar('Usuário Salvo com sucesso!','OK');
+        this.openSnackBar('Usuário Salvo com sucesso!','');
 
       }
+    }else{
+      this.openSnackBar('Campos Obrigatórios não preenchidos!','');
+
     }
   }
   view : boolean;
   edit(obj, view){
     this.view = view;
-    console.log("Aliado: " ,obj);
-
     this.objFormUsuario.controls['id'].setValue(obj.id);
     this.objFormUsuario.controls['user'].setValue(obj.user);
     this.objFormUsuario.controls['nome'].setValue(obj.nome);
@@ -113,7 +112,7 @@ export class UsuariosComponent implements OnInit{
         this.globalService.deleteUsuario(result).subscribe(data => {
           this.getUsuarios();
           this.controlView = 1;
-          this.openSnackBar('Usuário Excluído com sucesso!','OK');
+          this.openSnackBar('Usuário Excluído com sucesso!','');
           this.table.renderRows();
 
        });
