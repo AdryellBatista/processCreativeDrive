@@ -5,9 +5,12 @@ export class GlobalsServices {
 
 
 		arUsuarios = [
-      {id: 1, user: 'admin', nome: 'Administrador', senha: 'admin', tipo: 1, dtNas: new Date(1995, 11, 30)},
-    	{id: 2, user: 'user',  nome: 'Usuário',       senha: 'user',  tipo: 2, dtNas: new Date(1995, 11, 30)},
-    ];
+      {id: 1, user: 'admin',   nome: 'Administrador',   senha: 'admin', tipo: 1, dtNas: new Date(1990, 9, 20)},
+    	{id: 2, user: 'user',    nome: 'Usuário',         senha: 'user',  tipo: 2, dtNas: new Date(1995, 11, 30)},
+			{id: 3, user: 'adryell', nome: 'Adryell Batista', senha: 'user',  tipo: 2, dtNas: new Date(1993, 5, 21)},
+			{id: 4, user: 'felipe',  nome: 'Felipe',          senha: 'user',  tipo: 2, dtNas: new Date(1995, 11, 30)},
+
+		];
 
 		/*
 

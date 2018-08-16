@@ -9,7 +9,6 @@ export interface Menu {
 
 const MENUITEMS = [
     {state: 'starter', name: 'Home', type: 'link', icon: 'home' },
-
     {state: 'usuarios', type: 'link', name: 'Usuários', icon: 'group'},
 
     // {state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5'},

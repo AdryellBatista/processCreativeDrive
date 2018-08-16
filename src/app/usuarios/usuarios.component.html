@@ -17,8 +17,12 @@
               {{item.nome}}
            </mat-list-option>
         </mat-selection-list> -->
-
-        <table mat-table [dataSource]="arUsuarios" class="mat-elevation-z2" style="width: 100%; margin-top: 5px;">
+        <div >
+          <mat-form-field [color]="'warn'">
+            <input matInput placeholder="Digite para Pesquisar" (keyup)='filter($event)'>
+          </mat-form-field>
+        </div>
+        <table #table mat-table [dataSource]="arUsuarios" class="mat-elevation-z2" style="width: 100%; margin-top: 5px;">
 
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> Id. </th>
@@ -57,6 +61,10 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator #paginator [length]="arUsuarios.length"
+              [pageSize]="arUsuarios.length"
+              [pageSizeOptions]="[arUsuarios.length]">
+        </mat-paginator>
       </mat-card-content>
     </mat-card>
   </div>
@@ -132,14 +140,3 @@
     </mat-card-content>
 </mat-card>
 <!-- FIM FOMULÁRIO USUÁRIOS -->
-
-
-<!-- FOMULÁRIO USUÁRIOS -->
-<!-- <mat-card *ngIf="controlView == 2">
-    <mat-card-content>
-        <mat-card-title>{{titleCard}}</mat-card-title>
-            <button mat-raised-button style="margin-top: 10px;" (click)="controlView = 1;">Cancelar</button>&nbsp;
-            <button mat-raised-button color="warn" style="margin-top: 10px;" (click)="save()">Excluir</button>
-
-    </mat-card-content>
-</mat-card> -->
